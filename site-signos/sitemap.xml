@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="https://www.sitemaps.org/schemas/sitemap/0.9">
+
+  <url>
+    <loc>https://SEU-DOMINIO-AQUI/</loc>
+  </url>
+
+  <url>
+    <loc>https://SEU-DOMINIO-AQUI/index.html</loc>
+  </url>
+
+  <url>
+    <loc>https://SEU-DOMINIO-AQUI/compatibilidade.html</loc>
+  </url>
+
+  <url>
+    <loc>https://SEU-DOMINIO-AQUI/sobre.html</loc>
+  </url>
+
+  <url>
+    <loc>https://SEU-DOMINIO-AQUI/contato.html</loc>
+  </url>
+
+  <url>
+    <loc>https://SEU-DOMINIO-AQUI/privacidade.html</loc>
+  </url>
+
+  <url><loc>https://SEU-DOMINIO-AQUI/signos/aries.html</loc></url>
+  <url><loc>https://SEU-DOMINIO-AQUI/signos/touro.html</loc></url>
+  <url><loc>https://SEU-DOMINIO-AQUI/signos/gemeos.html</loc></url>
+  <url><loc>https://SEU-DOMINIO-AQUI/signos/cancer.html</loc></url>
+  <url><loc>https://SEU-DOMINIO-AQUI/signos/leao.html</loc></url>
+  <url><loc>https://SEU-DOMINIO-AQUI/signos/virgem.html</loc></url>
+  <url><loc>https://SEU-DOMINIO-AQUI/signos/libra.html</loc></url>
+  <url><loc>https://SEU-DOMINIO-AQUI/signos/escorpiao.html</loc></url>
+  <url><loc>https://SEU-DOMINIO-AQUI/signos/sagitario.html</loc></url>
+  <url><loc>https://SEU-DOMINIO-AQUI/signos/capricornio.html</loc></url>
+  <url><loc>https://SEU-DOMINIO-AQUI/signos/aquario.html</loc></url>
+  <url><loc>https://SEU-DOMINIO-AQUI/signos/peixes.html</loc></url>
+
+</urlset>
