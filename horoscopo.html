@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6673520591381428"
+     crossorigin="anonymous"></script>
+
+  <title>Horóscopo do Dia • Todos os Signos</title>
+  <meta name="description" content="Veja o horóscopo do dia para todos os signos: amor, trabalho e energia do dia. Conteúdo de entretenimento." />
+
+  <link rel="stylesheet" href="assets/css/styles.css?v=4" />
+</head>
+<body>
+  <header>
+    <div class="container nav">
+      <a class="brand" href="index.html">
+        <span class="logo"></span>
+        <span>Guia dos Signos</span>
+      </a>
+      <nav class="navlinks">
+        <a data-nav href="index.html">Signos</a>
+        <a data-nav href="horoscopo.html">Horóscopo</a>
+        <a data-nav href="compatibilidade.html">Compatibilidade</a>
+        <a data-nav href="sobre.html">Sobre</a>
+        <a data-nav href="contato.html">Contato</a>
+        <a data-nav href="privacidade.html">Privacidade</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container" style="padding: 22px 0 30px">
+    <section class="hero">
+      <div class="hero-grid">
+        <div class="panel">
+          <h1 class="h1">Horóscopo do Dia</h1>
+          <p class="p">Veja uma mensagem do dia para cada signo (conteúdo de entretenimento).</p>
+
+          <div class="search">
+            <input id="qH" class="input" placeholder="Filtrar signo... ex: Leão, Terra, Água" />
+            <button id="btnFiltrarH" class="btn">Filtrar</button>
+          </div>
+
+          <div class="note" id="countH">Carregando...</div>
+        </div>
+
+        <div class="ad">
+          Espaço de anúncio (topo)
+          <br><small>Auto Ads pode preencher aqui</small>
+        </div>
+      </div>
+    </section>
+
+    <section id="horoscopoGrid" class="grid"></section>
+
+    <div class="ad" style="margin-top:14px">
+      Espaço de anúncio (fim)
+      <br><small>Auto Ads pode preencher aqui</small>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div>© <span id="year"></span> Guia dos Signos • Entretenimento</div>
+    </div>
+  </footer>
+
+  <button id="toTop" class="to-top" type="button">↑ Topo</button>
+
+  <script src="assets/js/data-signos.js"></script>
+  <script src="assets/js/app.js"></script>
+
+  <script>
+    function esc(str){
+      return String(str).replace(/[&<>"']/g, m => ({
+        '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#039;'
+      }[m]));
+    }
+
+    function renderHoroscopoPage(){
+      const grid = document.getElementById("horoscopoGrid");
+      if(!grid) return;
+
+      const q = (document.getElementById("qH")?.value || "").trim().toLowerCase();
+
+      const hoje = new Date();
+
+      const list = window.SIGNOS.filter(s => {
+        if(!q) return true;
+        return (
+          s.nome.toLowerCase().includes(q) ||
+          s.elemento.toLowerCase().includes(q) ||
+          s.modalidade.toLowerCase().includes(q) ||
+          s.planeta.toLowerCase().includes(q)
+        );
+      });
+
+      grid.innerHTML = list.map(s => {
+        const texto = window.gerarHoroscopoDoDia(s.slug, hoje);
+        return `
+          <a class="card" href="signos/${esc(s.slug)}.html" aria-label="Ver ${esc(s.nome)}">
+            <div class="card-top">
+              <span class="badge">${esc(s.elemento)} • ${esc(s.modalidade)}</span>
+              <span class="badge">${esc(s.datas)}</span>
+            </div>
+            <div class="title">${esc(s.nome)}</div>
+            <p class="desc">${esc(texto)}</p>
+            <div class="kv">
+              <span class="chip">Planeta: ${esc(s.planeta)}</span>
+            </div>
+          </a>
+        `;
+      }).join("");
+
+      const count = document.getElementById("countH");
+      if(count) count.textContent = `${list.length} de ${window.SIGNOS.length} signos`;
+    }
+
+    document.addEventListener("DOMContentLoaded", () => {
+      const btn = document.getElementById("btnFiltrarH");
+      const inp = document.getElementById("qH");
+
+      const go = () => renderHoroscopoPage();
+
+      btn?.addEventListener("click", go);
+      inp?.addEventListener("input", go);
+
+      renderHoroscopoPage();
+    });
+  </script>
+</body>
+</html>
