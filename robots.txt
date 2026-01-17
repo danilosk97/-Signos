@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://signosh.netlify.app/sitemap.xml
